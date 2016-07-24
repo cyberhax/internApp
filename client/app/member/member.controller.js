@@ -25,10 +25,10 @@ class MemberComponent {
         .success(function(){
         })
         .error(function(err){
-            alert('Error someting webt wrong');
+            console.log(err);
         });
     };
-  };
+  }
 }
 angular.module('meApp')
   .component('member', {
