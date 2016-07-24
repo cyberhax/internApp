@@ -1,17 +1,13 @@
-<div>
-  <h2>member</h2>
+<div class='container'>
+    <h2>member</h2>
     <form>
-    <legend>member</legend>
-    <label>name</label>
-    <input type="text" id="name" name="name" ng-model="member.name">
-    <button class="btn btn-primary" ng-click="createMember()">Submit</button>
+        <legend>member form</legend>
+        <input type="text" placeholder='name' id="name" name="name" ng-model="member.name">
+        <button class="btn btn-primary" ng-click="createMember()">Submit</button>
     </form>
-
-<h2>member list</h2>
-<ul>
-    <li ng:repeat='member in members'>
-        {{member.name}}
-    </li>
-</ul>
-    
+    <h2>member list</h2>
+    <ul>
+        <li ng:repeat='member in members'> {{member.name}}        <button class="btn btn-danger" ng-click="removeMember($index)">Remove</button>
+ </li> 
+    </ul>
 </div>

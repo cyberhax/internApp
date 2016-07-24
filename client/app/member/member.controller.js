@@ -20,6 +20,14 @@ class MemberComponent {
       }
     };
       
+    $scope.removeMember = function(index){
+        $http.delete('/api/members/'+$scope.members[index]._id)
+        .success(function(){
+        })
+        .error(function(err){
+            alert('Error someting webt wrong');
+        });
+    };
   };
 }
 angular.module('meApp')
