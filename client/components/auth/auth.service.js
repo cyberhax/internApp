@@ -151,6 +151,7 @@
         };
 
         if (arguments.length < 2) {
+          //console.log(currentUser.role+'>'+ role);
           return hasRole(currentUser.role, role);
         }
 
@@ -171,6 +172,9 @@
        */
       isAdmin() {
         return Auth.hasRole.apply(Auth, [].concat.apply(['admin'], arguments));
+      },
+        isCompany() {
+        return currentUser.role =='company' ? true : false;
       },
 
       /**
