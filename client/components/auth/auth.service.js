@@ -174,7 +174,7 @@
         return Auth.hasRole.apply(Auth, [].concat.apply(['admin'], arguments));
       },
         isCompany() {
-        return currentUser.role =='company' ? true : false;
+        return currentUser.role === 'company' ? true : false;
       },
 
       /**

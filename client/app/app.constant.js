@@ -6,7 +6,8 @@
 		"guest",
 		"user",
 		"company",
-		"admin"
+		"admin",
+		"abc"
 	]
 })
 
