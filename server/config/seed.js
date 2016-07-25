@@ -6,6 +6,42 @@
 'use strict';
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
+import Job from '../api/job/job.model';
+import Company from '../api/company/company.model';
+
+Company.find({}).remove()
+    .then(()=>{
+   Company.create({
+     name: 'ipg',
+     description: 'this is ipg company',
+     website:'google.com',
+     active: true  
+   },{
+     name: 'exact',
+     description: 'this is exact company',
+     website:'exact.com',
+     active: true  
+   })
+   .then(()=>{
+      console.log('finsni company create'); 
+   });
+});
+
+Job.find({}).remove()
+  .then(()=>{
+    Job.create({
+      name: 'programmer',
+      description: 'Do some c# stuff',
+      salary:1000,
+      company:'ipg',
+      active: Boolean  
+    })
+    .then(()=>{
+        console.log('FInish job cretae');
+    });
+    
+});
+
 
 Thing.find({}).remove()
   .then(() => {
@@ -52,8 +88,16 @@ User.find({}).remove()
       name: 'Admin',
       email: 'admin@example.com',
       password: 'admin'
+    },{
+      provider: 'local',
+      role: 'company',
+      name: 'Company name',
+      email: 'company@example.com',
+      password: 'company'
     })
     .then(() => {
       console.log('finished populating users');
     });
   });
+
+

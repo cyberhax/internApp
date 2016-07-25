@@ -6,7 +6,7 @@
 		"guest",
 		"user",
 		"admin",
-        "hirer"
+		"company"
 	]
 })
 

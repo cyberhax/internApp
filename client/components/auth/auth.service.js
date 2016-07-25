@@ -130,6 +130,7 @@
 
         return Auth.getCurrentUser(null)
           .then(user => {
+            console.log(user);
             var is = user.hasOwnProperty('role');
             safeCb(callback)(is);
             return is;
