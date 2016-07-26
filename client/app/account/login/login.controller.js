@@ -19,7 +19,7 @@ class LoginController {
           password: this.user.password
         })
         .then(() => {
-          // Logged in, redirect to home
+          // Logged in, redirect to dash
           this.$state.go('dash');
         })
         .catch(err => {
