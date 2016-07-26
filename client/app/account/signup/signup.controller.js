@@ -12,12 +12,13 @@ class SignupController {
 
   register(form) {
     this.submitted = true;
-
+    console.log(this.user);
     if (form.$valid) {
       this.Auth.createUser({
           name: this.user.name,
           email: this.user.email,
-          password: this.user.password
+          password: this.user.password,
+          role: this.user.role
         })
         .then(() => {
           // Account created, redirect to home

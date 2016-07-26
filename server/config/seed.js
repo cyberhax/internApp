@@ -91,7 +91,7 @@ User.find({}).remove()
     },{
       provider: 'local',
       role: 'company',
-      name: 'Company name',
+      name: 'ipg',
       email: 'company@example.com',
       password: 'company'
     })

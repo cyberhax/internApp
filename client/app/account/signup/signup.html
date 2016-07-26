@@ -8,7 +8,7 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
                                             'has-error': form.name.$invalid && vm.submitted }">
-          <label>Name</label>
+          <label>Name / Company Name</label>
 
           <input type="text" name="name" class="form-control" ng-model="vm.user.name"
                  required/>
@@ -61,6 +61,18 @@
           <p class="help-block"
              ng-show="form.confirmPassword.$error.match && vm.submitted">
             Passwords must match.
+          </p>
+        </div>
+          
+        <div class="form-group" ng-class="{ 'has-success': form.role.$valid && vm.submitted,
+                                            'has-error': form.role.$invalid && vm.submitted }">
+          <label>Role</label>
+             <select ng-model='vm.user.role' name='role' class="form-control" required mongoose-error>
+                <option value='user'>Student</option>
+                <option value='company'>Company</option>
+             </select>
+          <p class="help-block" ng-show="form.password.$error.mongoose">
+            {{ vm.errors.role }}
           </p>
         </div>
 

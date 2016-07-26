@@ -65,6 +65,12 @@ export function index(req, res) {
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
+    
+export function indexCompany(req, res) {
+  return Job.find({company:req.params.name}).exec()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
 
 // Gets a single Job from the DB
 export function show(req, res) {

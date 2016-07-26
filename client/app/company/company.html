@@ -1,21 +1,30 @@
+
 <div class="container">
+    <h1>Post Job</h1>
 <table class="table table-hover">
           <thead>
             <tr>
             <th>Job Title</th>
             <th>Salary</th>
             <th>Description</th>
-            <th>Company</th>
-            <th>Remove</th>
+            <th>Action</th>
             </tr>
           </thead>
+          <tbody ng:repeat="job in jobs">
+            <td>{{job.name}}</td>
+            <td>{{job.salary}}</td>
+            <td>{{job.description}}</td>
+            <td><button class="btn btn-danger" ng-click="removeJob($index)">remove</button></td>
+          </tbody>
           <tbody>
+              <form>
             <td><input placeholder='name' type="text" ng-model="job.name"/></td>
             <td><input type="text" placeholder="salary" ng-model="job.salary"/></td>
             <td><input type="text" placeholder="description" ng-model="job.description"/></td>
-            <td><input type="text" placeholder="company" ng-model="job.company"/></td>
             <td><button class="btn btn-primary" ng-click="createJob()">Submit</button></td>
-          </tbody>
+              </form>  
+        </tbody>
+              
         </table>
     
-    </div>
+</div>

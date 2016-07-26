@@ -31,13 +31,20 @@ export function index(req, res) {
     .catch(handleError(res));
 }
 
+export function indexCompany(req, res) {
+  return User.find({'role':'company'}, '-salt -password').exec()
+    .then(users => {
+      res.status(200).json(users);
+    })
+    .catch(handleError(res));
+}
 /**
  * Creates a new user
  */
 export function create(req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
-  newUser.role = 'user';
+  //newUser.role = 'user';
   newUser.save()
     .then(function(user) {
       var token = jwt.sign({ _id: user._id }, config.secrets.session, {

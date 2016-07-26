@@ -11,7 +11,7 @@
             <th>Salary</th>
             <th>Description</th>
             <th>Company</th>
-            <th>Remove</th>
+            <th>Apply</th>
               </tr>
           </thead>
           <tbody ng:repeat="job in jobs">
@@ -19,25 +19,9 @@
             <td>{{job.salary}}</td>
             <td>{{job.description}}</td>
             <td>{{job.company}}</td>
-            <td><button class="btn btn-danger" ng-click="removeJob($index)">remove</button></td>
-          </tbody>
-          <tbody>
-            <td><input placeholder='name' type="text" ng-model="job.name"/></td>
-            <td><input type="text" placeholder="salary" ng-model="job.salary"/></td>
-            <td><input type="text" placeholder="description" ng-model="job.description"/></td>
-            <td><input type="text" placeholder="company" ng-model="job.company"/></td>
-            <td><button class="btn btn-primary" ng-click="createJob()">Submit</button></td>
+            <td><button class="btn btn-primary" ng-click="applyJob($index)">Apply</button></td>
           </tbody>
         </table>
-        <form>
-            
-            
-            
-            
-        </form>
-        <div class="col-md-6">{{job.name}}</div>
-        <div class="col-md-6">{{job.salary}}</div>
-        
     </div>
     <div class="col-md-4">
         <div class="jumbotron">List of company<br/>
