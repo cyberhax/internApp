@@ -8,7 +8,6 @@ class DashComponent {
     //$scope.jobs = [];
     //$scope.jobs = [{'name':'programmer','salary':1000,'company':{'name':'ipg','website':'http://google.com'}}];
     //$scope.companies = ['ipg','test'];
-     
     $http.get('/api/jobs').success((jobs)=>{
         $scope.jobs = jobs;
         socket.syncUpdates('job',$scope.jobs);

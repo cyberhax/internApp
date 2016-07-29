@@ -32,15 +32,15 @@ Running `npm test` will run the unit tests with karma.
 ## TODO
 
 1. Front end
-    -bagi lawa sikit,create ngan edit klau bole pakai modal
+    * bagi lawa sikit,create ngan edit klau bole pakai modal
 2. secure
     * api
     * page
     * 
 3. function
-    * change account status active/notactive
-    * profile page
-    * notify when new job open to student
-    * notify hc when someone apply(can turn on/off)
-    * issue offer letter(HC) *notify csimal
+    * change account status active/notactive *buat function update status*
+    * profile page *upload cv* je
+    * notify when new job open to student *belajar socket lg*
+    * notify hc when someone apply(can turn on/off) *socket gak*
+    * issue offer letter(HC) *notify csimal *socket*
     * 
