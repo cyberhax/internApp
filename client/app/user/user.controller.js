@@ -9,8 +9,12 @@ class UserComponent {
        $scope.students = students;
         socket.syncUpdates('user',$scope.students);
     });
-
-
+    $scope.editStudent = function (student) {
+        $http.put('/api/users/student/'+student._id,student).success(student,()=>{
+           console.log(student);
+            return student;
+        });
+    };
       $scope.active = [
       {value: true, text: 'true'},
       {value: false, text: 'false'}

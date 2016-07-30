@@ -2,6 +2,7 @@
 
 import User from './user.model';
 import passport from 'passport';
+import _ from 'lodash';
 import config from '../../config/environment';
 import jwt from 'jsonwebtoken';
 
@@ -11,13 +12,51 @@ function validationError(res, statusCode) {
     res.status(statusCode).json(err);
   }
 }
-
+function respondWithResult(res, statusCode) {
+    statusCode = statusCode || 200;
+    return function(entity) {
+        if (entity) {
+            res.status(statusCode).json(entity);
+        }
+    };
+}
+function saveUpdates(updates) {
+    return function(entity) {
+        var updated = _.merge(entity, updates);
+        return updated.save()
+            .then(updated => {
+                return updated;
+            });
+    };
+}
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
     res.status(statusCode).send(err);
   };
 }
+
+function removeEntity(res) {
+    return function(entity) {
+        if (entity) {
+            return entity.remove()
+                .then(() => {
+                    res.status(204).end();
+                });
+        }
+    };
+}
+
+function handleEntityNotFound(res) {
+    return function(entity) {
+        if (!entity) {
+            res.status(404).end();
+            return null;
+        }
+        return entity;
+    };
+}
+
 
 /**
  * Get list of users
@@ -135,4 +174,17 @@ export function me(req, res, next) {
  */
 export function authCallback(req, res, next) {
   res.redirect('/');
+}
+
+// Updates an existing User in the DB
+export function update(req, res) {
+    console.log(req.body._id);
+    if (req.body._id) {
+        delete req.body._id;
+    }
+    return User.findById(req.params.id).exec()
+        .then(handleEntityNotFound(res))
+        .then(saveUpdates(req.body))
+        .then(respondWithResult(res))
+        .catch(handleError(res));
 }
