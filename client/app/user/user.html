@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="col-md-8">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Activate</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody ng:repeat="student in students">
+            <td editable-text="student.name">{{student.name}}</td>
+            <td editable-text="student.email">{{student.email}}</td>
+            <td editable-select="student.active" e-ng-options="a.value as a.text for a in active">{{student.active}}</td>
+            <td editable-text="student.status">{{student.status}}</td>
+            <td><button class="btn btn-primary" ng-click="editStudent($index)">Apply</button></td>
+            </tbody>
+        </table>
+    </div>
+</div>

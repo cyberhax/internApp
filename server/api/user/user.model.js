@@ -20,6 +20,15 @@ var UserSchema = new Schema({
     type: String,
     required: true
   },
+  active: {
+    type:Boolean,
+    default :false
+  },
+  status:{
+    type:String,
+    enum:['ok','pending','fail','Not start'],
+    default:'Not start'
+  },
   provider: String,
   salt: String
 });

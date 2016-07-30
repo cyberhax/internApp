@@ -31,12 +31,20 @@ export function index(req, res) {
     .catch(handleError(res));
 }
 
-export function indexCompany(req, res) {
+export function indexCompany(req, res) {    //'/api/dash'
   return User.find({'role':'company'}, '-salt -password').exec()
     .then(users => {
       res.status(200).json(users);
     })
     .catch(handleError(res));
+}
+
+export function indexStudent(req, res) {    //'/api/student'
+    return User.find({'role':'user'}, '-salt -password').exec()
+        .then(users => {
+            res.status(200).json(users);
+        })
+        .catch(handleError(res));
 }
 /**
  * Creates a new user
