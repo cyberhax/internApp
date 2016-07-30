@@ -117,7 +117,9 @@
 
     "update-webdriver": "node node_modules/protractor/bin/webdriver-manager update",
 
-    "start": "node server"
+    "start": "node server",
+    "postinstall": "bower install && gulp build-libs && gulp build"
+
   },
   "private": true
 }
