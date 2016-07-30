@@ -11,11 +11,11 @@
             </tr>
             </thead>
             <tbody ng:repeat="student in students">
-            <td editable-text="student.name">{{student.name}}</td>
-            <td editable-text="student.email">{{student.email}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.email}}</td>
             <td editable-select="student.active" e-ng-options="a.value as a.text for a in active">{{student.active}}</td>
-            <td editable-text="student.status">{{student.status}}</td>
-            <td><button class="btn btn-primary" ng-click="editStudent(students[$index])">Apply</button></td>
+            <td editable-select="student.status" e-ng-options="s.value as s.text for s in status">{{student.status}}</td>
+            <td><button class="btn btn-primary" ng-click="editStudent($index)">Apply</button></td>
             </tbody>
         </table>
     </div>

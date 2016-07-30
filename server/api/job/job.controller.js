@@ -80,6 +80,13 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a single Job from the DB and update
+export function applyJob(req, res) {
+  return Job.update({_id:req.body.jobID},{'$addToSet':{'ygapply':req.params.id}})
+      .then(handleEntityNotFound(res))
+      .then(respondWithResult(res))
+      .catch(handleError(res));
+}
 // Creates a new Job in the DB
 export function create(req, res) {
   console.log('req body:',req.body);

@@ -7,7 +7,8 @@ var JobSchema = new Schema({
   description: String,
   salary:Number,
   company:String,
-  active: Boolean
+  active: Boolean,
+  ygapply:[]
 });
 
 export default mongoose.model('Job', JobSchema);

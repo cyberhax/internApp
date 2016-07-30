@@ -9,15 +9,20 @@ class UserComponent {
        $scope.students = students;
         socket.syncUpdates('user',$scope.students);
     });
-    $scope.editStudent = function (student) {
-        $http.put('/api/users/student/'+student._id,student).success(student,()=>{
-           console.log(student);
-            return student;
+    $scope.editStudent = function (index) {
+        $http.put('/api/users/student/'+$scope.students[index]._id,$scope.students[index]).success(()=>{
+            console.log('Done update');
         });
     };
       $scope.active = [
       {value: true, text: 'true'},
       {value: false, text: 'false'}
+      ];
+      $scope.status = [
+          {value: 'ok', text: 'ok'},
+          {value: 'pending', text: 'pending'},
+          {value: 'fail', text: 'fail'},
+          {value: 'not start', text: 'not start'}
       ];
   }
 }
