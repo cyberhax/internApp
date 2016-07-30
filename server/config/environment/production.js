@@ -15,7 +15,7 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri:  process.env.MONGODB_URI ||
+    uri:  process.env.MONGODB_URI || process.env.MONGOLAB_URI ||
           process.env.MONGOHQ_URL ||
           process.env.OPENSHIFT_MONGODB_DB_URL +
           process.env.OPENSHIFT_APP_NAME || 'mongodb://khursani:1261995s@ds021915.mlab.com:21915/internapp' ||
