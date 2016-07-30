@@ -14,18 +14,23 @@
             <td>{{job.name}}</td>
             <td>{{job.salary}}</td>
             <td>{{job.description}}</td>
-            <td><button class="btn btn-danger" ng-click="removeJob($index)">remove</button></td>
+            <td><md-button class="md-raised md-danger" ng-click="removeJob($index)">remove</md-button></td>
           </tbody>
           <tbody>
               <form>
             <td><input placeholder='name' type="text" ng-model="job.name"/></td>
             <td><input type="text" placeholder="salary" ng-model="job.salary"/></td>
             <td><input type="text" placeholder="description" ng-model="job.description"/></td>
-            <td><button class="btn btn-primary" ng-click="createJob()">Submit</button></td>
+            <td><md-button class="md-raised md-primary" ng-click="createJob()">Submit</md-button></td>
               </form>  
         </tbody>
 </table>
-    
-    
+
+    <ol ng-repeat="job in jobs">
+        {{job.name}}
+        <ul ng-repeat="name in job.ygapply">
+            <li>{{name}}</li>
+        </ul>
+    </ol>
     
 </div>

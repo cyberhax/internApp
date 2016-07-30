@@ -3,8 +3,8 @@
 (function(){
 
 class ApplicantComponent {
-  constructor() {
-
+  constructor($scope) {
+      $http.get('/api/jobs')
   }
 }
 
