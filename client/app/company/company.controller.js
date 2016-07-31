@@ -3,7 +3,7 @@
 (function(){
 
 class CompanyComponent {
-  constructor($scope,$http,Auth,socket) {
+  constructor($scope,$http,Auth,socket,$mdDialog) {
     $scope.jobs = [];
     $scope.company = Auth.getCurrentUser().name;
     //console.log(this.company);
@@ -28,10 +28,22 @@ class CompanyComponent {
         } //end if
     };
       
-    $scope.removeJob = function(index){
-        $http.delete('/api/jobs/'+$scope.jobs[index]._id)
-        .success(()=>{ 
+    $scope.removeJob = function(index,ev){
+        var confirm = $mdDialog.confirm()
+            .title('Would you like to delete your the job?')
+            .textContent('This action will remove the job from database.')
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('Please do it!')
+            .cancel('Wait I need this one.');
+        $mdDialog.show(confirm).then(function() {
+            $http.delete('/api/jobs/'+$scope.jobs[index]._id)
+                .success(()=>{
+                });
+        }, function() {
+
         });
+
     };
   }
 }

@@ -14,13 +14,21 @@
             <td>{{job.name}}</td>
             <td>{{job.salary}}</td>
             <td>{{job.description}}</td>
-            <td><md-button class="md-raised md-danger" ng-click="removeJob($index)">remove</md-button></td>
+            <td><md-button class="md-raised md-warn" ng-click="removeJob($index,$event)">remove</md-button></td>
           </tbody>
           <tbody>
               <form>
-            <td><input placeholder='name' type="text" ng-model="job.name"/></td>
-            <td><input type="text" placeholder="salary" ng-model="job.salary"/></td>
-            <td><input type="text" placeholder="description" ng-model="job.description"/></td>
+            <td>
+                  <md-input-container>
+                      <input placeholder='name' type="text" ng-model="job.name"/>
+                  </md-input-container>
+            </td>
+            <td><md-input-container>
+                <input type="text" placeholder="salary" ng-model="job.salary"/>
+            </td></md-input-container>
+            <td><md-input-container>
+                <input type="text" placeholder="description" ng-model="job.description"/>
+            </td></md-input-container>
             <td><md-button class="md-raised md-primary" ng-click="createJob()">Submit</md-button></td>
               </form>  
         </tbody>
