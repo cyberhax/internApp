@@ -108,6 +108,12 @@ User.find({}).remove()
         name: 'studio',
         email: 'studio@example.com',
         password: 'studio'
+    },{
+        provider: 'local',
+        role: 'company',
+        name: 'deloitte',
+        email: 'deloitte@example.com',
+        password: 'deloitte'
     })
     .then(() => {
       console.log('finished populating users');

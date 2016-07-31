@@ -23,13 +23,20 @@
           </tbody>
         </table>
     </div>
-    <div class="col-md-4">
-        <div class="jumbotron">List of company<br/>
-        <ul ng:repeat="company in companies">
-            <li>{{company.name}}</li>
-        </ul>
-        </div>
-    </div>
+    <md-content class="col-md-4 padding">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text><span class="md-headline"> List of company</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-content>
+            <md-list ng:repeat="company in companies">
+                    <md-list-item class="md-button md-raised">{{company.name}}</md-list-item>
+            </md-list>
+            </md-content>
+
+        </md-card>
+    </md-content>
 
     <md-content class="md-padding">
         <md-card>
