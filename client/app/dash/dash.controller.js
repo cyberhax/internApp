@@ -17,7 +17,6 @@ class DashComponent {
         socket.syncUpdates('company',$scope.companies);
     });
 
-
     $scope.applyJob = function (index) {
         console.log('apply job : '+$scope.jobs[index]._id);
         this.lala = {
@@ -26,7 +25,9 @@ class DashComponent {
         };
         //console.log(this.apply);
         $http.put('/api/jobs/user/'+this.lala.userID,this.lala).success((obj)=>{
-            console.log(obj);
+            if(obj.nModified === 0){
+                alert('already apply');
+            }
         });
     };
   }
