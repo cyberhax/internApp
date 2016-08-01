@@ -19,7 +19,7 @@
             <td>{{job.salary}}</td>
             <td>{{job.description}}</td>
             <td>{{job.company}}</td>
-            <td><md-button class="md-primary md-ink-ripple md-raised" ng-click="applyJob($index)">Apply</md-button></td>
+            <td><md-button class="md-primary md-ink-ripple md-raised" ng-click="applyJob($index,$event)">Apply</md-button></td>
           </tbody>
         </table>
     </div>
@@ -37,7 +37,6 @@
 
         </md-card>
     </md-content>
-
     <md-content class="md-padding">
         <md-card>
             <md-card-title>
@@ -53,4 +52,8 @@
             </md-card-title>
         </md-card>
     </md-content>
+<form action="/resume" method="post" enctype="multipart/form-data">
+    <input type="file" name="resume">
+    <input type="submit">
+</form>
 </div>

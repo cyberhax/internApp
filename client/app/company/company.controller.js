@@ -27,7 +27,7 @@ class CompanyComponent {
         });
         } //end if
     };
-      
+
     $scope.removeJob = function(index,ev){
         var confirm = $mdDialog.confirm()
             .title('Would you like to delete your the job?')

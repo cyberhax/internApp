@@ -17,21 +17,21 @@
             <td><md-button class="md-raised md-warn" ng-click="removeJob($index,$event)">remove</md-button></td>
           </tbody>
           <tbody>
-              <form>
-            <td>
+          <form>
+              <td>
                   <md-input-container>
-                      <input placeholder='name' type="text" ng-model="job.name"/>
+                      <input required placeholder='name' type="text" ng-model="job.name"/>
                   </md-input-container>
-            </td>
-            <td><md-input-container>
-                <input type="text" placeholder="salary" ng-model="job.salary"/>
-            </td></md-input-container>
-            <td><md-input-container>
-                <input type="text" placeholder="description" ng-model="job.description"/>
-            </td></md-input-container>
-            <td><md-button class="md-raised md-primary" ng-click="createJob()">Submit</md-button></td>
-              </form>  
-        </tbody>
+              </td>
+              <td><md-input-container>
+                  <input required type="number" step="1" placeholder="salary" ng-model="job.salary"/>
+              </td></md-input-container>
+              <td><md-input-container>
+                  <input md-minlength="4" required type="text" placeholder="description" ng-model="job.description"/>
+              </td></md-input-container>
+              <td><md-button class="md-raised md-primary" ng-click="createJob()">Submit</md-button></td>
+          </form>
+          </tbody>
 </table>
 
     <ol ng-repeat="job in jobs">
