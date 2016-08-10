@@ -29,6 +29,13 @@ Run `grunt build` for building and `grunt serve` for preview.
 
 Running `npm test` will run the unit tests with karma.
 
+
+## Enable seed for db
+
+1. After clone the repo,open server/config/environment/development.js *klau environment dev tukar kat development.js By default 'development'
+2. Change SeedDB from false to true
+3. change URI to your mongodb uri
+
 ## TODO
 
 1. Front end
