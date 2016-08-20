@@ -6,8 +6,7 @@ class CompanyComponent {
   constructor($scope,$http,Auth,socket,$mdDialog) {
     $scope.jobs = [];
     $scope.company = Auth.getCurrentUser().name;
-    //console.log(this.company);
-      
+
     $http.get('/api/jobs/cp/'+$scope.company).success((jobs)=>{
         console.log(jobs);
         $scope.jobs = jobs;
