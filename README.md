@@ -51,3 +51,7 @@ Running `npm test` will run the unit tests with karma.
     * notify hc when someone apply(can turn on/off) *socket gak*
     * issue offer letter(HC) *notify csimal *socket*
     * 
+    * 
+###Misc
+-Create swagger doc
+-ionic apps
