@@ -7,3 +7,5 @@ client/bower_components
 /server/config/local.env.js
 npm-debug.log
 coverage
+.DS_Store
+dist

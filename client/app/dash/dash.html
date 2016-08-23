@@ -1,56 +1,66 @@
 <div class="container">
-    <div class="jumbotron text-center">
-        <h2>Dashboard that list all available position</h2>
-    </div>
-    
-    <div class="col-md-8">
-        <table class="table table-hover">
-          <thead>
-              <tr>
-            <th>Job Title</th>
-            <th>Salary</th>
-            <th>Description</th>
-            <th>Company</th>
-            <th>Apply</th>
-              </tr>
-          </thead>
-          <tbody ng:repeat="job in jobs">
-            <td>{{job.name}}</td>
-            <td>{{job.salary}}</td>
-            <td>{{job.description}}</td>
-            <td>{{job.company}}</td>
-            <td><md-button class="md-primary md-ink-ripple md-raised" ng-click="applyJob($index,$event)">Apply</md-button></td>
-          </tbody>
-        </table>
-    </div>
-    <md-content class="col-md-4 padding">
-        <md-card>
-            <md-card-title>
-                <md-card-title-text><span class="md-headline"> List of company</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-content>
-            <md-list ng:repeat="company in companies">
-                    <md-list-item class="md-button md-raised">{{company.name}}</md-list-item>
-            </md-list>
-            </md-content>
 
-        </md-card>
-    </md-content>
-    <md-content class="md-padding">
-        <md-card>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Headline</span>
-                    <span class="md-subhead">Subhead</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <md-card-title-media>
-                        <div class="md-media-lg card-media"
-                    </md-card-title-media>
-                </md-card-title-media>
-            </md-card-title>
-        </md-card>
-    </md-content>
+  <div class="jumbotron text-center">
+    <h2>Dashboard that list all available position</h2>
+  </div>
+
+  <div class="col-md-8">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>Salary</th>
+          <th>Description</th>
+          <th>Company</th>
+          <th>Apply</th>
+        </tr>
+      </thead>
+      <tbody ng:repeat="job in jobs">
+        <td>{{job.name}}</td>
+        <td>{{job.salary}}</td>
+        <td>{{job.description}}</td>
+        <td>{{job.company}}</td>
+        <td><md-button class="md-primary md-ink-ripple md-raised" ng-click="applyJob($index,$event)">Apply</md-button></td>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- We can extend the chips to act as a filter
+  for the job application list in the table above -->
+  <md-content class="col-md-4">
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline"> List of company</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-content class="md-padding">
+        <md-chips>
+          <md-chip ng:repeat="company in companies">{{company.name}}</md-chip>
+        </md-chips>
+      </md-content>
+    </md-card>
+  </md-content>
+
+  <md-content class="md-padding">
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Resume</span>
+          <span class="md-subhead">Subhead</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-lg card-media">
+        </md-card-title-media>
+      </md-card-title>
+      <md-card-content>
+        <form action="/resume" method="post" enctype="multipart/form-data">
+          <input class="ng-hide" id="input-file-id" multiple type="file" />
+          <label for="input-file-id" class="md-button md-raised md-primary">Upload</label>
+          <md-button class="md-raised" type="submit">Submit</md-button>
+        </form>
+      </md-card-content>
+    </md-card>
+  </md-content>
 
 </div>
