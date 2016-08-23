@@ -104,7 +104,17 @@
       <script src="components/navbar/navbar.directive.js"></script>
       <script src="components/socket/socket.service.js"></script>
       <script src="components/util/util.service.js"></script>
+      <script src="sw.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
+  <script>
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('./sw.js').then(function (reg) {
+        console.log("Yay",reg);
+      }).catch(function (err) {
+        console.log("Boo  :",err);
+      })
+    }
+  </script>
   </body>
 </html>
