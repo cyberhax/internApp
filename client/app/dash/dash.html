@@ -25,42 +25,4 @@
     </table>
   </div>
 
-  <!-- We can extend the chips to act as a filter
-  for the job application list in the table above -->
-  <md-content class="col-md-4">
-    <md-card>
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline"> List of company</span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-content class="md-padding">
-        <md-chips>
-          <md-chip ng:repeat="company in companies">{{company.name}}</md-chip>
-        </md-chips>
-      </md-content>
-    </md-card>
-  </md-content>
-
-  <md-content class="md-padding">
-    <md-card>
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">Resume</span>
-          <span class="md-subhead">Subhead</span>
-        </md-card-title-text>
-        <md-card-title-media>
-          <div class="md-media-lg card-media">
-        </md-card-title-media>
-      </md-card-title>
-      <md-card-content>
-        <form action="/api/resumes" method="post" enctype="multipart/form-data">
-          <input class="ng-hide" id="input-file-id" multiple type="file" />
-          <label for="input-file-id" class="md-button md-raised md-primary">Upload</label>
-          <md-button class="md-raised" type="submit">Submit</md-button>
-        </form>
-      </md-card-content>
-    </md-card>
-  </md-content>
-
 </div>
