@@ -16,6 +16,7 @@
     "angular-socket-io": "~0.7.0",
     "angular-ui-router": "~0.2.15",
     "angular-validation-match": "~1.5.2",
+    "angular-xeditable": "^0.2.0",
     "angular-material": "1.0.9"
   },
   "devDependencies": {
